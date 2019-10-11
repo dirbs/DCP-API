@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="vendor/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         cacheTokens="false"
+         processIsolation="true"
+         stopOnFailure="true">
+    <testsuites>
+        <testsuite name="Unit">
+            <directory suffix="Test.php">./tests/Unit</directory>
+            <!--<file>./tests/Unit/SuperAdmin/UsersTest.php</file>-->
+            <!--<file>./tests/Unit/UserCountNotificationsTest.php</file>-->
+            <!--<file>./tests/Unit/LicenseTest.php</file>-->
+        </testsuite>
+        <!--<testsuite name="Feature">-->
+        <!--<directory suffix="Test.php">./tests/Feature</directory>-->
+        <!--</testsuite>-->
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./app</directory>
+            <!--<file>./app/Http/Controllers/SuperAdmin/UserController.php</file>-->
+            <exclude>
+                <directory>./app/Http/Middleware</directory>
+                <directory>./app/Permissions</directory>
+                <directory>./app/Mail</directory>
+                <directory>./app/Notifications</directory>
+                <directory>./app/Exceptions</directory>
+                <directory>./app/Providers</directory>
+                <directory>./app/Mail</directory>
+                <directory>./app/Console</directory>
+                <file>./app/User.php</file>
+                <file>./app/CounterFiet.php</file>
+                <file>./app/Feedback.php</file>
+                <file>./app/IMEI.php</file>
+                <file>./app/LicenseAgreement.php</file>
+                <file>./app/PasswordReset.php</file>
+                <file>./app/Role.php</file>
+                <file>./app/Permission.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+    <!--<logging>-->
+    <!--<log type="coverage-html" target="./report" charset="UTF-8"-->
+    <!--yui="true" highlight="true"-->
+    <!--lowUpperBound="50" highLowerBound="80"/>-->
+    <!--</logging>-->
+    <php>
+        <env name="APP_ENV" value="testing"/>
+        <env name="BCRYPT_ROUNDS" value="4"/>
+        <env name="CACHE_DRIVER" value="array"/>
+        <env name="MAIL_DRIVER" value="log"/>
+        <env name="QUEUE_CONNECTION" value="sync"/>
+        <env name="DB_CONNECTION" value="sqlite"/>
+        <env name="DB_DATABASE" value=":memory:"/>
+        <env name="SESSION_DRIVER" value="array"/>
+
+    </php>
+</phpunit>
