@@ -84,7 +84,14 @@ class ImController extends Controller {
 			$city       = $locDetails->city;
 			$state      = $locDetails->state;
 			$state_name = $locDetails->state_name;
-			list( $data, $response ) = ( new WCOApi() )->wcoGetHandSetDetails( $input, $wco_port_name, $wco_country, $wco_port_type );
+            try {
+                list($data, $response) = (new WCOApi())->wcoGetHandSetDetails($input, $wco_port_name, $wco_country, $wco_port_type);
+            } catch (\Exception $exception) {
+                return response()->json([
+                    'error' => true,
+                    'message' => $exception->getMessage()
+                ]);
+            }
 
 			try {
 				$data = \GuzzleHttp\json_decode( $response->getBody() );
