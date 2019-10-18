@@ -19,7 +19,7 @@ NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY THIS 
 ## Quick Setup
 
 ## Pre-requisites
-- PHP v7.1 or greater
+- PHP v7.3.7 or greater
 - PostgresSQL v 11.4 or greater
 - Composer dependency manager v1.8.4 or greater
 
